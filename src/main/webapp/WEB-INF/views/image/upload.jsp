@@ -14,7 +14,7 @@
                         <img src="/images/logo.jpg" alt="">
                     </a>
                     <p>사진 업로드</p>
-                </div>
+                </div> 
                 <!--사진업로드 로고 end-->
                 
                 <!--사진업로드 Form-->
