@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,13 +26,16 @@ public class User {
     @Id
     private int id;
     
-    @Column(length = 20, unique = true, nullable = false)
+    @Column(length = 20, unique = true)
     private String username;
+    @Column(nullable = false)
     private String password;
-
+    @Column(nullable = false)
     private String name;
     private String website; //웹사이트
     private String bio; //자기소개
+
+    @Column(nullable = false)
     private String email;
     private String phone;
     private String gender;
