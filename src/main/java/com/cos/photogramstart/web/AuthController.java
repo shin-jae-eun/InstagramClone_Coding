@@ -55,7 +55,6 @@ public class AuthController {
              for (FieldError error : bindingResult.getFieldErrors()) {
                  errorMap.put(error.getField(), error.getDefaultMessage());
                  System.out.println(error.getDefaultMessage());
-
              }
              //return "오류남";
 
