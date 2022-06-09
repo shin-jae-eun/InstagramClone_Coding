@@ -41,4 +41,4 @@ spring:
       enabled: always
 
 file:
-  path: C:/workspace/springbootwork/upload/
+  path: C:/juwon/green_workspace/springbootphotogram_lab/upload/
