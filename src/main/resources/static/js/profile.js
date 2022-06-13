@@ -28,7 +28,7 @@ function toggleSubscribe(toUserId, obj) {
 	} else {
 
 		$.ajax({
-			type: "delete",
+			type: "post",
 			url: "/api/subscribe/" + toUserId, //누구를 구독하는지에 대한 정보
 			dataType: "json"
 		}).done(res => {
