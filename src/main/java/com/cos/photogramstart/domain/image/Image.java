@@ -10,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 
-import org.hibernate.annotations.ManyToAny;
-
 import com.cos.photogramstart.domain.user.User;
 
 import lombok.AllArgsConstructor;
@@ -46,4 +44,12 @@ public class Image {
     public void createDate() {
         this.createDate = LocalDateTime.now();
     }
+
+    // 오브젝트를 콘솔에 출력 시, 문제 될 수 있어 user부분을 출력되지 않도록 만듦.
+    // @Override
+    // public String toString() {
+    // return "Image [caption=" + caption + ", createDate=" + createDate + ", id=" +
+    // id + ", postImageUrl="
+    // + postImageUrl + "]";
+    // }
 }

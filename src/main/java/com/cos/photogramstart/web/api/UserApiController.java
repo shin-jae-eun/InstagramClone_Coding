@@ -25,14 +25,13 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @RestController
 public class UserApiController {
-    
-    private final UserService userService;
 
+    private final UserService userService;
 
     @PutMapping("/api/user/{id}")
     public CMRespDto<?> update(@PathVariable int id,
             @Valid UserUpdateDto userUpdateDto,
-            BindingResult bindingResult, 
+            BindingResult bindingResult,
             @AuthenticationPrincipal PrincipalDetails principalDetails) {
 
         if (bindingResult.hasErrors()) {
@@ -40,18 +39,17 @@ public class UserApiController {
 
             for (FieldError error : bindingResult.getFieldErrors()) {
                 errorMap.put(error.getField(), error.getDefaultMessage());
-                System.out.println(error.getDefaultMessage());
             }
-            //return "오류남";
+            // return "오류남";
 
-            //exception발동시키기
+            // exception발동시키기
             throw new CustomValidationApiException("유효성 검사 실패함", errorMap);
         } else {
-                   
-        User userEntity = userService.회원수정(id, userUpdateDto.toEntity());
-        principalDetails.setUser(userEntity); //session정보 변경 
-        return new CMRespDto<>(1, "수정 완료 ", userEntity);
+
+            User userEntity = userService.회원수정(id, userUpdateDto.toEntity());
+            principalDetails.setUser(userEntity); // session정보 변경
+            return new CMRespDto<>(1, "수정 완료 ", userEntity);
 
         }
-         }
+    }
 }
