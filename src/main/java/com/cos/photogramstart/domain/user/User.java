@@ -29,7 +29,7 @@ public class User {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 번호증가전략: 데이터베이스를 따라가겠다.
     @Id
-    private int id;
+    private Integer id;
 
     @Column(length = 20, unique = true)
     private String username;

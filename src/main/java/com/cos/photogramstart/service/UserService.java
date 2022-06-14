@@ -24,7 +24,7 @@ public class UserService {
     private final SubscribeRepository subscribeRepository;
 
     @Transactional(readOnly = true)
-    public UserProfileDto 회원프로필(int pageUserId, int principalId) {
+    public UserProfileDto 회원프로필(Integer pageUserId, Integer principalId) {
         UserProfileDto dto = new UserProfileDto();
 
         // SELECT * FROM image WHERE userId = :userId
@@ -37,8 +37,8 @@ public class UserService {
         dto.setImageCount(userEntity.getImages().size());
 
         // dto에 구독정보 담기
-        int subscribeState = subscribeRepository.mSubscribeState(principalId, pageUserId);
-        int subscribeCount = subscribeRepository.mSubscribeCount(pageUserId);
+        Integer subscribeState = subscribeRepository.mSubscribeState(principalId, pageUserId);
+        Integer subscribeCount = subscribeRepository.mSubscribeCount(pageUserId);
 
         dto.setSubscribeState(subscribeState == 1);
         dto.setSubscribeCount(subscribeCount);
@@ -47,7 +47,7 @@ public class UserService {
     }
 
     @Transactional
-    public User 회원수정(int id, User user) {
+    public User 회원수정(Integer id, User user) {
 
         // 1. 영속화
         User userEntity = userRepository.findById(id).orElseThrow(() -> {
