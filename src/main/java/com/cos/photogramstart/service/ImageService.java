@@ -3,6 +3,7 @@ package com.cos.photogramstart.service;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -46,6 +47,12 @@ public class ImageService {
         Image imageEntity = imageRepository.save(image);
 
         // System.out.println(imageEntity.toString());
+    }
+
+    @Transactional(readOnly = true)
+    public List<Image> 이미지스토리(int principalId) {
+        List<Image> images = imageRepository.mStory(principalId);
+        return images;
     }
 
 }
