@@ -23,18 +23,18 @@ import com.cos.photogramstart.web.dto.auth.SignupDto;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@Controller //1. ioc등록 2. file리턴 컨트롤러 
+@Controller // 1. ioc등록 2. file리턴 컨트롤러
 public class AuthController {
-    
+
     private static final Logger log = LoggerFactory.getLogger(AuthController.class);
-  
-    //di
+
+    // di
     private final AuthService authService;
 
-    //public AuthController(AuthService authService){
+    // public AuthController(AuthService authService){
     // this.authService=authService;
     // }
-    
+
     @GetMapping("/auth/signin")
     public String signinForm() {
         return "auth/signin";
@@ -45,29 +45,14 @@ public class AuthController {
         return "auth/signup";
     }
 
-    //회원가입 버튼 클릭 -> /auth/signup -> 리턴하면 /auth/signin
-     @PostMapping("/auth/signup")
-     public String signup(@Valid SignupDto signupDto, BindingResult bindingResult) {
+    // 회원가입 버튼 클릭 -> /auth/signup -> 리턴하면 /auth/signin
+    @PostMapping("/auth/signup")
+    public String signup(@Valid SignupDto signupDto, BindingResult bindingResult) {
 
-         if (bindingResult.hasErrors()) {
-             Map<String, String> errorMap = new HashMap<>();
-
-             for (FieldError error : bindingResult.getFieldErrors()) {
-                 errorMap.put(error.getField(), error.getDefaultMessage());
-                 System.out.println(error.getDefaultMessage());
-             }
-             //return "오류남";
-
-             //exception발동시키기
-             throw new CustomValidationException("유효성 검사 실패함", errorMap);
-            } else {
-             //user에다가 singnupdto를 담기
-         User user = signupDto.toEntity();
-         log.info(user.toString());
-    
-         User userEntity = authService.회원가입(user);
-         System.out.println(userEntity);
-                  return "auth/signin";
-         }        
+        // user에다가 singnupdto를 담기
+        User user = signupDto.toEntity();
+        User userEntity = authService.회원가입(user);
+        System.out.println(userEntity);
+        return "auth/signin";
     }
 }
