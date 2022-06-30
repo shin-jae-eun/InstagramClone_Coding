@@ -33,7 +33,7 @@
 - **개발 환경** : VS Code, SpringBoot 2.5.12, Maven, Lombok, JPA
 <br/>
   
-## 💡**** 주요 구현 기능****
+## 💡주요 구현 기능
 - 사용자 구독 기능
 - 소셜 로그인 기능(facebook OAuth)
 - 게시글 좋아요 기능
@@ -53,6 +53,7 @@
 
 [<img width="1280" alt="Screenshot_13" src="https://user-images.githubusercontent.com/97711663/176609387-67586ae3-abd8-4827-b640-7cd8402b2e07.png">
 ](https://youtu.be/oa4bTg8bRf8)
+
 <br/>
 
 ## 💡ERD
