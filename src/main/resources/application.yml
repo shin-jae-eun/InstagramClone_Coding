@@ -36,9 +36,21 @@ spring:
       name: test
       password: 1234   
 
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: 1750152832003952
+            client-secret: 4adc32a8a9e0ea459a34b3a0bb52c7a0
+            scope:
+            - public_profile
+            - email
+
+
   output:
     ansi:
       enabled: always
+
 
 file:
   path: C:/juwon/green_workspace/springbootphotogram_lab/upload/
